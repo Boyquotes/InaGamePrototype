@@ -102,6 +102,7 @@ text = "SFX"
 margin_top = 254.0
 margin_right = 230.0
 margin_bottom = 270.0
+audio_bus_name = "SFX"
 
 [node name="HSeparator2" type="HSeparator" parent="Panel/Settings"]
 margin_top = 274.0
@@ -121,7 +122,7 @@ margin_bottom = 20.0
 size_flags_horizontal = 4
 text = "Accept"
 
-[node name="CanelBtn" type="Button" parent="Panel/Settings/BottomButtons"]
+[node name="CancelBtn" type="Button" parent="Panel/Settings/BottomButtons"]
 margin_left = 60.0
 margin_right = 114.0
 margin_bottom = 20.0
@@ -136,3 +137,5 @@ size_flags_horizontal = 4
 text = "Reset"
 
 [connection signal="pressed" from="Panel/Settings/BottomButtons/AcceptBtn" to="." method="_on_AcceptBtn_pressed"]
+[connection signal="pressed" from="Panel/Settings/BottomButtons/CancelBtn" to="." method="_on_CancelBtn_pressed"]
+[connection signal="pressed" from="Panel/Settings/BottomButtons/ResetBtn" to="." method="_on_ResetBtn_pressed"]

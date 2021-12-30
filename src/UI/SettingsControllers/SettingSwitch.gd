@@ -1,7 +1,7 @@
-extends HSlider
+extends CheckButton
 
 export var setting_category := "controls"
-export var setting_name := "mouse_sensitivity"
+export var setting_name := "inverted"
 
 var _after_ready = false
 
@@ -16,8 +16,8 @@ func _get_configuration_warning() -> String:
 
 
 func load_value() -> void:
-	value = ConfigManager.get_setting(setting_category, setting_name)
+	pressed = ConfigManager.get_setting(setting_category, setting_name)
 
 
 func save_setting() -> void:
-	ConfigManager.set_setting(setting_category, setting_name, value)
+	ConfigManager.set_setting(setting_category, setting_name, pressed)

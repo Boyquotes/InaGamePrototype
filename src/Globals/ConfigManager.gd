@@ -5,13 +5,14 @@ signal loaded_settings
 signal restored_settings
 signal changed_setting(category, key, new_value)
 
-const SAVE_PATH = "res://config.cfg"
+const SAVE_PATH_DEBUG = "res://config.cfg"
+const SAVE_PATH = "user://config.cfg"
 const ConfigConsoleColor = Color.teal
 
 var _config_file: ConfigFile = ConfigFile.new()
 
-# TODO: add version checking in case the settings file isn't the same
 # This are the default settings
+# TODO: check game version when loading config file
 var _settings: Dictionary = {
 	"version":
 	{
@@ -32,8 +33,8 @@ var _settings: Dictionary = {
 	"sound":
 	{
 		"Master": 1.0,
-		"Music": 1.0,
-		"SFX": 1.0,
+		"Music": 0.6,
+		"SFX": 0.55,
 	},
 }
 
@@ -60,7 +61,7 @@ func load_settings_file() -> void:
 		if error != OK:
 			print("Error loading config file, error code #", error)
 			return
-
+		
 		for section in _settings.keys():
 			for key in _settings[section]:
 				_settings[section][key] = _config_file.get_value(section, key)

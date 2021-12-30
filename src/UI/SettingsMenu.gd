@@ -11,7 +11,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
-func _on_CloseBtn_pressed() -> void:
+func close_menu() -> void:
 	get_tree().paused = false
 	visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -19,4 +19,15 @@ func _on_CloseBtn_pressed() -> void:
 
 
 func _on_AcceptBtn_pressed() -> void:
-	get_tree().call_group("SettingController", "save_setting")
+	get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME, "SettingController", "save_setting")
+	ConfigManager.save_settings_file()
+	close_menu()
+
+
+func _on_CancelBtn_pressed():
+	get_tree().call_group("SettingController", "load_Value")
+	close_menu()
+
+
+func _on_ResetBtn_pressed():
+	ConfigManager.restore_settings()

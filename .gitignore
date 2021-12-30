@@ -12,3 +12,8 @@ data_*/
 
 # No export folder
 Export/
+# No vscode folder
+.vscode/
+
+# No config file
+config.cfg

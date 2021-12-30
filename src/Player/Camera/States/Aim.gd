@@ -7,8 +7,7 @@ onready var tween: Tween = $Tween
 export var fov: = 40.0
 export var offset_camera: = Vector3(0.75, -0.7, 0.0)
 
-export var aim_sensitivity_gamepad: = Vector2(2.5, 2.5)
-export var aim_sensitivity_mouse: = Vector2(0.1, 0.1)
+export(float, 0.1, 1.0, 0.05) var aim_sensitivity_percent = 0.8
 
 func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_aim"):
@@ -31,8 +30,8 @@ func process(delta: float) -> void:
 
 
 func enter(_msg: Dictionary = {}) -> void:
-	_parent.sensitivity_gamepad = aim_sensitivity_gamepad
-	_parent.sensitivity_mouse = aim_sensitivity_mouse
+	_parent.sensitivity_gamepad = _parent.sensitivity_gamepad * aim_sensitivity_percent
+	_parent.sensitivity_mouse = _parent.sensitivity_mouse * aim_sensitivity_percent
 	
 	_parent._is_aiming = true
 	camera_rig.aim_target.visible = true

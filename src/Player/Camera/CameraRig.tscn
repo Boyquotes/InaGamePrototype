@@ -58,8 +58,6 @@ script = ExtResource( 8 )
 script = ExtResource( 1 )
 fov = 50.0
 offset_camera = Vector3( 0.75, 0.5, 0 )
-aim_sensitivity_gamepad = Vector2( 1, 1 )
-aim_sensitivity_mouse = Vector2( 1.2, 1.2 )
 
 [node name="Tween" type="Tween" parent="StateMachine/Camera/Aim"]
 
