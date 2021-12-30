@@ -1,0 +1,138 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/UI/SettingsControllers/VolumeSlider.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UI/SettingsControllers/SettingSlider.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/SettingsMenu.gd" type="Script" id=3]
+[ext_resource path="res://src/UI/SettingsControllers/SettingSwitch.tscn" type="PackedScene" id=4]
+
+[node name="SettingsMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -122.0
+margin_top = -158.0
+margin_right = 122.0
+margin_bottom = 158.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="VBoxContainer" parent="Panel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 237.0
+margin_bottom = 309.0
+
+[node name="Controls" type="Label" parent="Panel/Settings"]
+margin_right = 230.0
+margin_bottom = 31.0
+text = "Controls:
+"
+
+[node name="Mouse" type="Label" parent="Panel/Settings"]
+margin_top = 35.0
+margin_right = 230.0
+margin_bottom = 49.0
+text = "Sensitivity mouse"
+
+[node name="SensitivityMouse" parent="Panel/Settings" instance=ExtResource( 2 )]
+margin_top = 53.0
+margin_right = 230.0
+margin_bottom = 69.0
+
+[node name="Mouse2" type="Label" parent="Panel/Settings"]
+margin_top = 73.0
+margin_right = 230.0
+margin_bottom = 87.0
+text = "Sensitivity controller"
+
+[node name="SensitivityController" parent="Panel/Settings" instance=ExtResource( 2 )]
+margin_top = 91.0
+margin_right = 230.0
+margin_bottom = 107.0
+setting_name = "controller_sensitivity"
+
+[node name="InvertedControls" parent="Panel/Settings" instance=ExtResource( 4 )]
+margin_top = 111.0
+margin_right = 230.0
+margin_bottom = 151.0
+text = "Invert camera"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/Settings"]
+margin_top = 155.0
+margin_right = 230.0
+margin_bottom = 159.0
+
+[node name="Audio" type="Label" parent="Panel/Settings"]
+margin_top = 163.0
+margin_right = 230.0
+margin_bottom = 194.0
+text = "Audio:
+"
+
+[node name="Master" type="Label" parent="Panel/Settings"]
+margin_top = 198.0
+margin_right = 230.0
+margin_bottom = 212.0
+text = "Master"
+
+[node name="MasterSlider" parent="Panel/Settings" instance=ExtResource( 1 )]
+margin_top = 216.0
+margin_right = 230.0
+margin_bottom = 232.0
+
+[node name="SFX" type="Label" parent="Panel/Settings"]
+margin_top = 236.0
+margin_right = 230.0
+margin_bottom = 250.0
+text = "SFX"
+
+[node name="SFXSlider" parent="Panel/Settings" instance=ExtResource( 1 )]
+margin_top = 254.0
+margin_right = 230.0
+margin_bottom = 270.0
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/Settings"]
+margin_top = 274.0
+margin_right = 230.0
+margin_bottom = 278.0
+
+[node name="BottomButtons" type="HBoxContainer" parent="Panel/Settings"]
+margin_left = 32.0
+margin_top = 282.0
+margin_right = 198.0
+margin_bottom = 302.0
+size_flags_horizontal = 4
+
+[node name="AcceptBtn" type="Button" parent="Panel/Settings/BottomButtons"]
+margin_right = 56.0
+margin_bottom = 20.0
+size_flags_horizontal = 4
+text = "Accept"
+
+[node name="CanelBtn" type="Button" parent="Panel/Settings/BottomButtons"]
+margin_left = 60.0
+margin_right = 114.0
+margin_bottom = 20.0
+size_flags_horizontal = 4
+text = "Cancel"
+
+[node name="ResetBtn" type="Button" parent="Panel/Settings/BottomButtons"]
+margin_left = 118.0
+margin_right = 166.0
+margin_bottom = 20.0
+size_flags_horizontal = 4
+text = "Reset"
+
+[connection signal="pressed" from="Panel/Settings/BottomButtons/AcceptBtn" to="." method="_on_AcceptBtn_pressed"]

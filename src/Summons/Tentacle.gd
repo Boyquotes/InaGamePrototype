@@ -22,8 +22,8 @@ func delete() -> void:
 func _physics_process(delta: float) -> void:
 	velocity.y = velocity.y + gravity * delta
 	if not is_on_floor():
-		#velocity.x = 0.0
-		#velocity.z = 0.0
+		velocity.x = 0.0
+		velocity.z = 0.0
 		_snap = Vector3.ZERO
 	else:
 		_snap = Vector3(0, 0.2, 0)

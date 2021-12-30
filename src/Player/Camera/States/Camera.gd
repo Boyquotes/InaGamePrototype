@@ -2,6 +2,7 @@ extends CameraState
 
 
 export var is_y_inverted: = false
+export var is_x_inverted: = false
 export var fov_default: = 70.0
 export var deadzone_backward: = 0.3
 
@@ -15,8 +16,23 @@ var _input_relative: = Vector2.ZERO
 var _is_aiming: = false
 
 func _ready() -> void:
+	ConfigManager.connect("changed_setting", self, "_on_changed_setting")
 	sensitivity_gamepad = default_sensitivity_gamepad
 	sensitivity_mouse = default_sensitivity_mouse
+
+
+func _on_changed_setting(category: String, key: String, new_val) -> void:
+	if category == "controls":
+		match key:
+			"inverted":
+				is_y_inverted = new_val
+				is_x_inverted = new_val
+			"hold_for_aim":
+				pass
+			"mouse_sensitivity":
+				sensitivity_mouse = Vector2(new_val, new_val)
+			"controller_sensitivity":
+				sensitivity_gamepad = Vector2(new_val, new_val)
 
 
 func process(delta: float) -> void:
