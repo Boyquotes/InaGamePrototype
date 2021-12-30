@@ -1,0 +1,24 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1640291232.json",
+	"mirror_portraits": false,
+	"name": "TestDummy",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": -50,
+	"offset_y": -200,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://assets/2d/portrait/Tako/Tako_hmm.png"
+		},
+		{
+			"name": "Withered",
+			"path": "res://assets/2d/portrait/Tako/Tako_withered.png"
+		}
+	],
+	"scale": 100
+}

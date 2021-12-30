@@ -1,0 +1,146 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Levels/TestLevel.gd" type="Script" id=2]
+[ext_resource path="res://addons/kenney_prototypes/assets/colors/orange/scenes/prototype_orange_02.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/kenney_prototypes/assets/colors/red/scenes/prototype_red_01.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Interactive/Interactive.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Interactive/TextBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Interactive/Dialog.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Follower/Follower.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Interactive/Switch.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Obstacles/OpenCloseDoor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Interactive/PressurePlate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Interactive/MovingPlatform.tscn" type="PackedScene" id=12]
+
+[sub_resource type="ProceduralSky" id=3]
+
+[sub_resource type="Environment" id=4]
+background_mode = 2
+background_sky = SubResource( 3 )
+ssao_enabled = true
+ssao_intensity = 0.6
+ssao_quality = 2
+
+[sub_resource type="BoxShape" id=5]
+
+[sub_resource type="BoxShape" id=6]
+
+[sub_resource type="CubeMesh" id=7]
+
+[node name="TestLevel" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 7.82363, 1.62231, 8.09881 )
+
+[node name="Follower" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34251, 0 )
+target_path = NodePath("../Player")
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 5.70477, 0 )
+light_energy = 0.505
+shadow_enabled = true
+shadow_bias = 0.02
+directional_shadow_normal_bias = 0.146
+
+[node name="Floor" type="StaticBody" parent="."]
+transform = Transform( 26.9802, 0, 0, 0, 0.25, 0, 0, 0, 26.9802, -12.0391, -0.500001, -16.8983 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1 )
+shape = SubResource( 5 )
+
+[node name="PrototypeCube" parent="Floor" instance=ExtResource( 3 )]
+
+[node name="DialogTests" type="Spatial" parent="."]
+
+[node name="Interactive" parent="DialogTests" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.1636 )
+
+[node name="TextBox" parent="DialogTests" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.4694 )
+
+[node name="Dialog" parent="DialogTests" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23.6084 )
+timeline = "timeline-1640291203.json"
+
+[node name="Dialog2" parent="DialogTests" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.84464, 0, 23.6084 )
+timeline = "timeline-1640291484.json"
+
+[node name="Dialog3" parent="DialogTests" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.92203, 0, 23.6084 )
+timeline = "timeline-1640292746.json"
+
+[node name="Ramp" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.76672, 0, -11.8303 )
+
+[node name="StaticBody2" type="StaticBody" parent="Ramp"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -0.00571835, 0, 0 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Ramp/StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1 )
+shape = SubResource( 5 )
+
+[node name="PrototypeCube2" parent="Ramp/StaticBody2" instance=ExtResource( 4 )]
+
+[node name="StaticBody3" type="StaticBody" parent="Ramp"]
+transform = Transform( 2, 0, 0, 0, 0.956859, -1.21571, 0, 0.290552, 4.00364, -0.00571835, 0.0875663, 3.41923 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Ramp/StaticBody3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1 )
+shape = SubResource( 5 )
+
+[node name="PrototypeCube2" parent="Ramp/StaticBody3" instance=ExtResource( 4 )]
+
+[node name="Doors" type="Spatial" parent="."]
+
+[node name="OpenCloseDoor" parent="Doors" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1112, 0, 4.89742 )
+activator_path = NodePath("../DoorSwitch")
+opened_position = Vector3( 0, 3, 0 )
+
+[node name="DoorSwitch" parent="Doors" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9078, 0, 8.16756 )
+
+[node name="OpenCloseDoor2" parent="Doors" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0398, 0, 4.89742 )
+activator_path = NodePath("../PressurePlate")
+opened_position = Vector3( 0, 3, 0 )
+
+[node name="PressurePlate" parent="Doors" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1722, 9.53674e-07, 8.17184 )
+
+[node name="TestBox" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46833, 1.07729, -9.49071 )
+
+[node name="CollisionShape" type="CollisionShape" parent="TestBox"]
+shape = SubResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="TestBox"]
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Switch2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31661, 2.13844, -10.7571 )
+
+[node name="MovingPlatform" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8077, 1.80754, -9.83688 )
+activator_path = NodePath("../Switch2")
+end_position = Vector3( 10, 0, 0 )
+time = 5.0
+
+[node name="OpenCloseDoor" parent="." instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.7505, 1.91367, -9.86083 )
+activator_path = NodePath("../Doors/PressurePlate")

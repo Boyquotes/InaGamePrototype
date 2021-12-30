@@ -1,0 +1,250 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://addons/kenney_prototypes/assets/colors/purple/scenes/prototype_purple_03.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Interactive/MovingPlatform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Interactive/Switch.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/kenney_prototypes/assets/colors/orange/scenes/prototype_orange_01.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Levels/Glass.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/icons/state.svg" type="Texture" id=6]
+[ext_resource path="res://src/Obstacles/OpenCloseDoor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Interactive/PressurePlate.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Interactive/Dialog.tscn" type="PackedScene" id=10]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="CylinderShape" id=5]
+radius = 1.8696
+height = 2.16146
+
+[node name="Room6" type="Spatial"]
+
+[node name="WallsFloor" type="Spatial" parent="."]
+
+[node name="Floor1" type="StaticBody" parent="WallsFloor"]
+transform = Transform( -9.73869e-07, 0, 8.63086, 0, 0.5, 0, -22.2795, 0, -3.77267e-07, 3.17964e-07, -0.5, 7.27417 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsFloor/Floor1"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsFloor/Floor1" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Floor3" type="StaticBody" parent="WallsFloor"]
+transform = Transform( -1.31628e-07, 0, -8.67956, 0, 0.5, 0, 3.01129, 0, -3.79396e-07, 15.649, -0.6, -9.136 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsFloor/Floor3"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsFloor/Floor3" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="MovingPlatform" parent="WallsFloor" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.34285, 4.58063, -2.16898 )
+activator_path = NodePath("../PlatformSwitch")
+end_position = Vector3( 0, 0, 12 )
+time = 6.0
+
+[node name="PlatformSwitch" parent="WallsFloor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.56333 )
+
+[node name="Ramp" type="Spatial" parent="WallsFloor"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.35253, 2.14441, -7.38595 )
+
+[node name="Floor4" type="StaticBody" parent="WallsFloor/Ramp"]
+transform = Transform( 1.5, 0, 0, 0, 3.02974, 0, 0, 0, 2.257, -1.92495, -0.309919, 0 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsFloor/Ramp/Floor4"]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsFloor/Ramp/Floor4" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.948713, -1, -1 )
+
+[node name="Floor5" type="StaticBody" parent="WallsFloor/Ramp"]
+transform = Transform( 1.5, 0, 0, 0, 3.02974, 0, 0, 0, 2.257, 0.879348, -2.93839, 0 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsFloor/Ramp/Floor5"]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsFloor/Ramp/Floor5" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.948713, -1, -1 )
+
+[node name="SideWallR" type="StaticBody" parent="WallsFloor"]
+transform = Transform( 1.32699e-06, 0, 0.43, 0, 6, 0, -17.5766, 0, 3.24641e-08, -8.624, 3.66315, 1.66698 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsFloor/SideWallR"]
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsFloor/SideWallR" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.11022e-15, 0, 1, 0, -1.13687e-12, 0, 1, -1.03914, -1, -1 )
+
+[node name="SideWallR6" type="StaticBody" parent="WallsFloor"]
+transform = Transform( 3.6743, 0, -5.126e-08, 0, 6, 0, 4.38011e-07, 0, 0.43, -4.99819, 3.66315, 17.9831 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsFloor/SideWallR6"]
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsFloor/SideWallR6" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.11022e-15, 0, 1, 0, -1.13687e-12, 0, 1, -1.03914, -1, -1 )
+
+[node name="SideWallR7" type="StaticBody" parent="WallsFloor"]
+transform = Transform( 3.6743, 0, -5.126e-08, 0, 6, 0, 4.38011e-07, 0, 0.43, 5.27655, 3.66315, 17.9831 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsFloor/SideWallR7"]
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsFloor/SideWallR7" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.11022e-15, 0, 1, 0, -1.13687e-12, 0, 1, -1.03914, -1, -1 )
+
+[node name="SideWallR2" type="StaticBody" parent="WallsFloor"]
+transform = Transform( 1.05647e-06, 0, 0.43, 0, 6, 0, -13.9933, 0, 3.24641e-08, 8.48443, 3.66315, 6.29757 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsFloor/SideWallR2"]
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsFloor/SideWallR2" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 4.44089e-16, 0, 1, 0, -2.27374e-13, 0, 1, -1, -1, -1 )
+
+[node name="SideWallR3" type="StaticBody" parent="WallsFloor"]
+transform = Transform( 11.0018, 0, -5.126e-08, 0, 6, 0, 1.31152e-06, 0, 0.43, -2.15076, 3.66315, -14.9346 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsFloor/SideWallR3"]
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsFloor/SideWallR3" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 4.44089e-16, 0, 1, 0, -2.27374e-13, 0, 1, -1, -1, -1 )
+
+[node name="SideWallR5" type="StaticBody" parent="WallsFloor"]
+transform = Transform( 11.0018, 0, -5.126e-08, 0, 6, 0, 1.31152e-06, 0, 0.43, -2.15076, 3.66315, -14.9346 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsFloor/SideWallR5"]
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsFloor/SideWallR5" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 4.44089e-16, 0, 1, 0, -2.27374e-13, 0, 1, -1, -1, -1 )
+
+[node name="SideWallR4" type="StaticBody" parent="WallsFloor"]
+transform = Transform( -3.57504e-07, 0, -0.43, 0, 6, 0, 2.19434, 0, -7.00559e-08, 8.65147, 3.66315, -13.1528 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsFloor/SideWallR4"]
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsFloor/SideWallR4" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 4.44089e-16, 0, 1, 0, -2.27374e-13, 0, 1, -1, -1, -1 )
+
+[node name="Glass2" parent="WallsFloor" instance=ExtResource( 5 )]
+transform = Transform( -6.55671e-08, 0, 2.257, 0, 3, 0, -1.5, 0, -9.86566e-08, -6.44024, 1.69712, 12.5829 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.476384, 0.71604, -0.51024, -0.146507, 0.636854, 0.756936, 0.866945, -0.285839, 0.408292, 0, 12.0877, 0 )
+visible = false
+shadow_enabled = true
+shadow_bias = 0.02
+directional_shadow_normal_bias = 0.5
+
+[node name="Door1" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1.62826, 0, 0, 0, 1.17048, 0, 0, 0, 1, -6.56643, 4.68642, 2.51717 )
+activator_path = NodePath("../Plate1")
+opened_position = Vector3( -1.8, 0, 0 )
+time = 1.5
+
+[node name="Plate1" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.54105 )
+
+[node name="Door2" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1.628, 0, 0, 0, 1.17, 0, 0, 0, 1, -6.56643, 4.68642, 8.3517 )
+activator_path = NodePath("../Plate2")
+opened_position = Vector3( -1.8, 0, 0 )
+time = 1.5
+
+[node name="Plate2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.4967 )
+
+[node name="DoorSwitch" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17432, 5.12401, 12.5718 )
+
+[node name="CollisionShape" parent="DoorSwitch" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45039, 0 )
+shape = SubResource( 5 )
+
+[node name="Icon" parent="DoorSwitch" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5629, 0 )
+modulate = Color( 1, 1, 1, 1 )
+pixel_size = 0.0134
+texture = ExtResource( 6 )
+
+[node name="OpenCloseDoor" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.9837 )
+activator_path = NodePath("../DoorSwitch")
+
+[node name="Dialog" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35346, 24.1592 )
+timeline = "timeline-1640820573.json"
+
+[node name="Glass" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.158695, 0, 0, 0, 2.48793, 0, 0, 0, 7.8017, -4.1981, 7.09468, 6.33431 )
+
+[node name="Glass2" parent="." instance=ExtResource( 5 )]
+transform = Transform( -6.93676e-09, 0, -2.36689, 0, 2.48793, 0, 0.158695, 0, -1.0346e-07, -6.55088, 7.09468, 13.9823 )
+
+[editable path="DoorSwitch"]

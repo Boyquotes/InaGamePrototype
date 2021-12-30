@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Obstacles/OpenCloseDoor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/kenney_prototypes/assets/colors/orange/scenes/prototype_orange_01.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Interactive/PopupTrigger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Interactive/Switch.tscn" type="PackedScene" id=7]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 11.9923, 2.91941, 1.41563 )
+
+[node name="Room1" type="Spatial"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall" type="StaticBody" parent="."]
+transform = Transform( 5.29947, 0, 0, 0, 3.04052, 0, 0, 0, 0.430028, 6.59261, 2.35888, -13.5159 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Wall" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Wall2" type="StaticBody" parent="."]
+transform = Transform( 5.29947, 0, 0, 0, 3.04052, 0, 0, 0, 0.430028, -6.64136, 2.35888, -13.523 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall2"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Wall2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Wall5" type="StaticBody" parent="."]
+transform = Transform( 14.0516, 0, -3.10434e-08, 0, 3.04052, 0, -3.82566e-07, 0, 0.430028, 0, 2.359, 9.91552 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall5"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Wall5" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 5.68434e-14, 0, 1, -1, -1, -1 )
+
+[node name="Switch" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0249073, -7.39298 )
+
+[node name="OpenCloseDoor" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.4834 )
+activator_path = NodePath("../Switch")
+
+[node name="PopupTrigger" parent="." instance=ExtResource( 6 )]
+
+[node name="AcceptDialog" parent="PopupTrigger" index="0"]
+margin_left = -128.0
+margin_top = -42.0
+margin_right = 128.0
+margin_bottom = 42.0
+window_title = "Info"
+dialog_text = "Press E to interact with objects when they have an icon above them"
+dialog_autowrap = true
+
+[node name="CollisionShape" parent="PopupTrigger" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00934, -5.14964 )
+shape = SubResource( 3 )
+
+[node name="SideWallR" type="StaticBody" parent="."]
+transform = Transform( -2.31647e-07, 0, -0.430028, 0, 3.04052, 0, 14.0516, 0, -4.98405e-08, 12.01, 2.35888, -3.12553 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="SideWallR"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="SideWallR" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -4.44089e-16, 0, 1, 0, -5.68434e-14, 0, 1, -1, -1, -0.999998 )
+
+[node name="SideWallL" type="StaticBody" parent="."]
+transform = Transform( -2.31647e-07, 0, -0.430028, 0, 3.04052, 0, 14.0516, 0, -4.98405e-08, -11.9771, 2.35888, -3.12553 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="SideWallL"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="SideWallL" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -4.44089e-16, 0, 1, 0, -5.68434e-14, 0, 1, -1, -1, -1 )
+
+[editable path="PopupTrigger"]

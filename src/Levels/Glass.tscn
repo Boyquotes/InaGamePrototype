@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 0.635294 )
+metallic_specular = 0.83
+roughness = 0.13
+
+[sub_resource type="BoxShape" id=3]
+
+[node name="Glass" type="StaticBody" groups=["AntiTentacle"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 3 )

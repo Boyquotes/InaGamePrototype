@@ -1,0 +1,209 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/Interactive/TextBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Obstacles/OpenCloseDoor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/kenney_prototypes/assets/colors/orange/scenes/prototype_orange_01.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/kenney_prototypes/assets/colors/purple/scenes/prototype_purple_03.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/kenney_prototypes/assets/colors/dark/scenes/prototype_dark_01.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Interactive/Switch.tscn" type="PackedScene" id=7]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 6.062, 3, 0.433 )
+
+[node name="Room3" type="Spatial"]
+
+[node name="Floor3" type="StaticBody" parent="."]
+transform = Transform( 12, 0, 0, 0, 0.5, 0, 0, 0, 6.34706, 0, -0.5, -6.15665 )
+collision_layer = 2
+collision_mask = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor3"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Floor3" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Wall3" type="StaticBody" parent="."]
+transform = Transform( 9.69562, 0, 0, 0, 3.04052, 0, 0, 0, 0.430028, 3.92473, 2.35888, -0.120644 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall3"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Wall3" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Wall8" type="StaticBody" parent="."]
+transform = Transform( -2.66071e-07, 0, -0.43, 0, 3.041, 0, 6.087, 0, -1.87959e-08, 12.303, 2.359, -6.23434 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall8"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Wall8" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Wall9" type="StaticBody" parent="."]
+transform = Transform( -4.23809e-07, 0, -0.430028, 0, 3.04052, 0, 6.08678, 0, -1.18006e-08, -12.0942, 2.35888, -6.23444 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall9"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Wall9" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Wall4" type="StaticBody" parent="."]
+transform = Transform( 2.23761, 0, 0, 0, 3.04052, 0, 0, 0, 0.430028, -11.657, 2.35888, -0.120644 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall4"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Wall4" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Wall" type="StaticBody" parent="."]
+transform = Transform( 5.29947, 0, 0, 0, 3.04052, 0, 0, 0, 0.430028, 6.59261, 2.35888, -12.1042 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Wall" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Wall2" type="StaticBody" parent="."]
+transform = Transform( 5.29947, 0, 0, 0, 3.04052, 0, 0, 0, 0.430028, -6.64136, 2.35888, -12.1113 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall2"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Wall2" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Bar" type="StaticBody" parent="."]
+transform = Transform( -2.8213e-07, 0, 1, 0, 1, 0, -1, 0, -2.8213e-07, 6.045, 2.359, -6.28094 )
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Bar"]
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bars" type="Spatial" parent="Bar"]
+transform = Transform( -2.8213e-07, 0, -1, 0, 1, 0, 1, 0, -2.8213e-07, -51.6866, -2.359, -6.04501 )
+
+[node name="Bar1" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -46.1866 )
+
+[node name="Bar2" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -46.6866 )
+
+[node name="Bar3" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -47.1866 )
+
+[node name="Bar4" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -47.6866 )
+
+[node name="Bar5" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -48.1866 )
+
+[node name="Bar6" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -48.6866 )
+
+[node name="Bar7" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -49.1866 )
+
+[node name="Bar8" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -49.6866 )
+
+[node name="Bar9" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -50.1866 )
+
+[node name="Bar10" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -50.6866 )
+
+[node name="Bar11" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -51.1866 )
+
+[node name="Bar12" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -51.6866 )
+
+[node name="Bar13" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -52.1866 )
+
+[node name="Bar14" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -52.6866 )
+
+[node name="Bar15" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -53.1866 )
+
+[node name="Bar16" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -53.6866 )
+
+[node name="Bar17" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -54.1866 )
+
+[node name="Bar18" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -54.6866 )
+
+[node name="Bar19" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -55.1866 )
+
+[node name="Bar20" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -55.6866 )
+
+[node name="Bar21" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -56.1866 )
+
+[node name="Bar22" parent="Bar/Bars" instance=ExtResource( 6 )]
+transform = Transform( -2.8213e-08, 0, 0.1, 0, 3, 0, -0.1, 0, -2.8213e-08, 6.045, -0.141, -56.6866 )
+
+[node name="Switch" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5548, 0.0248174, -6.34864 )
+
+[node name="OpenCloseDoor2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.1182 )
+activator_path = NodePath("../Switch")
+
+[node name="TextBox" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.57445, 0, -10.2801 )
+text = "Tentacles can be summoned through bars"

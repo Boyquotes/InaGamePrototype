@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Menu Open.wav-550804f464f34fce16d90aa988944716.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Menu Open.wav"
+dest_files=[ "res://.import/Menu Open.wav-550804f464f34fce16d90aa988944716.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

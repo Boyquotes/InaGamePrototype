@@ -1,0 +1,156 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://addons/kenney_prototypes/assets/colors/purple/scenes/prototype_purple_03.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Interactive/PressurePlate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Interactive/TextBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Obstacles/OpenCloseDoor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Interactive/MovingPlatform.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Interactive/Switch.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/kenney_prototypes/assets/colors/orange/scenes/prototype_orange_01.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Levels/Glass.tscn" type="PackedScene" id=8]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="Room5" type="Spatial"]
+
+[node name="WallsAndFloors" type="Spatial" parent="."]
+
+[node name="Floor1" type="StaticBody" parent="WallsAndFloors"]
+transform = Transform( 14.857, 0, 0, 0, 0.5, 0, 0, 0, 8.63086, -5.34273, -0.5, 0 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsAndFloors/Floor1"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsAndFloors/Floor1" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Floor2" type="StaticBody" parent="WallsAndFloors"]
+transform = Transform( 2.42754, 0.25, 0, -1.40154, 0.433013, 0, 0, 0, 2.25702, 3.63631, 0.860843, -6.2917 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsAndFloors/Floor2"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsAndFloors/Floor2" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Floor3" type="StaticBody" parent="WallsAndFloors"]
+transform = Transform( 1.5, 0, 0, 0, 1.504, 0, 0, 0, 2.257, -0.0875869, 1.16791, -6.2917 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsAndFloors/Floor3"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsAndFloors/Floor3" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.948713, -1, -1 )
+
+[node name="SideWallR" type="StaticBody" parent="WallsAndFloors"]
+transform = Transform( -14.7905, 0, 9.13422e-08, 0, 6, 0, -5.32142e-07, 0, -0.43, -5.23141, 5.04951, -8.73583 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsAndFloors/SideWallR"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsAndFloors/SideWallR" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 2.22045e-16, 0, 1, 0, -5.68434e-14, 0, 1, -1, -1, -1 )
+
+[node name="SideWallL" type="StaticBody" parent="WallsAndFloors"]
+transform = Transform( -14.7905, 0, 9.13422e-08, 0, 6, 0, -5.32142e-07, 0, -0.43, -5.23141, 5.04951, 8.26417 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsAndFloors/SideWallL"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsAndFloors/SideWallL" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 2.22045e-16, 0, 1, 0, -5.68434e-14, 0, 1, -1, -1, -1 )
+
+[node name="SideWallL2" type="StaticBody" parent="WallsAndFloors"]
+transform = Transform( 1.17866e-06, 0, 0.43, 0, 6, 0, -3.78522, 0, 2.81868e-08, -20.2547, 5.04951, 4.89729 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsAndFloors/SideWallL2"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsAndFloors/SideWallL2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 2.22045e-16, 0, 1, 0, -5.68434e-14, 0, 1, -1, -1, -1 )
+
+[node name="SideWallL3" type="StaticBody" parent="WallsAndFloors"]
+transform = Transform( 1.17866e-06, 0, 0.43, 0, 6, 0, -3.78522, 0, 2.81868e-08, -20.2547, 5.04951, -5.32273 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="WallsAndFloors/SideWallL3"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="WallsAndFloors/SideWallL3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 2.22045e-16, 0, 1, 0, -5.68434e-14, 0, 1, -1, -1, -1 )
+
+[node name="MovingPlatform" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.57245, 2.35587, -6.28192 )
+activator_path = NodePath("../PressurePlate")
+end_position = Vector3( -9.4, 6.061, 0 )
+time = 2.0
+
+[node name="PressurePlate" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70346, 0, 3.65101 )
+
+[node name="TextBox" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.325219, 0, 3.73939 )
+text = "Tentacles can't activate pressure plates, they also don't need to be static."
+
+[node name="CollisionShape" parent="TextBox" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0887568, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.476384, 0.71604, -0.51024, -0.146507, 0.636854, 0.756936, 0.866945, -0.285839, 0.408292, 0, 12.0877, 0 )
+visible = false
+shadow_enabled = true
+shadow_bias = 0.02
+directional_shadow_normal_bias = 0.5
+
+[node name="OpenCloseDoor" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20.1963, 0, 0 )
+activator_path = NodePath("../Glass/Switch")
+
+[node name="Glass" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 4.774, 0, 0, 0, 1, -15.5519, 3.89869, -6.26993 )
+
+[node name="Switch" parent="Glass" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 0.209468, 0, 0, 0, 1, -0.0758686, 1.0252, -0.125359 )
+
+[node name="TextBox2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.833944, 0, -0.551849, 0, 1, 0, 0.551849, 0, -0.833944, -14.1773, 0, -4.04692 )
+text = "You can't place tentacles on top of glass.
+(Also ignore the under side of the switches)"
+
+[editable path="TextBox"]

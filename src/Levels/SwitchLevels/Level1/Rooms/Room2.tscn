@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/Interactive/TextBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Obstacles/OpenCloseDoor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/kenney_prototypes/assets/colors/orange/scenes/prototype_orange_01.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/kenney_prototypes/assets/colors/purple/scenes/prototype_purple_03.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Interactive/Switch.tscn" type="PackedScene" id=8]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="Room2" type="Spatial"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Floor2" type="StaticBody" parent="."]
+transform = Transform( 1.67784, 0, 0, 0, 0.732811, 0, 0, 0, 1.67784, 7.30595, -1.24405, -37.1425 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor2"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Floor2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Room2Switch" parent="Floor2" instance=ExtResource( 8 )]
+transform = Transform( 0.596006, 0, 0, 0, 1.36461, 0, 0, 0, 0.596006, -0.00991726, 0.976371, -0.0239639 )
+
+[node name="OpenCloseDoor" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06278, 0, -28.2528 )
+activator_path = NodePath("../Floor2/Room2Switch")
+
+[node name="Wall3" type="StaticBody" parent="."]
+transform = Transform( 3.25819, 0, 0, 0, 3.04052, 0, 0, 0, 0.430028, -3.37087, 2.35888, -28.2949 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall3"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Wall3" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Wall4" type="StaticBody" parent="."]
+transform = Transform( 2.23761, 0, 0, 0, 3.04052, 0, 0, 0, 0.430028, -11.657, 2.35888, -28.2949 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall4"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Wall4" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="Floor3" type="StaticBody" parent="."]
+transform = Transform( 3.01129, 0, 0, 0, 0.5, 0, 0, 0, 8.67956, -7.65206, -0.671532, -37.1086 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor3"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PrototypeCube" parent="Floor3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
+
+[node name="TextBox" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70675, 0, -26.4635 )
+text = "Press [b]right click[/b] to [i]aim[/i], and [b]left click[/b] to [i]summon[/i] a tentacle.
+Tentacles can interact with [i]switches[/i].
+(You can close this dialog with E)"

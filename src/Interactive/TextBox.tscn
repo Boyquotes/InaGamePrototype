@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Interactive.gd" type="Script" id=1]
+[ext_resource path="res://src/Interactive/Interactive.tscn" type="PackedScene" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.901961, 0.85098, 0.643137, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.1, 1, 0.1 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 1, 0.5, 0.136 )
+
+[node name="TextBox" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+text = "Hello world!"
+
+[node name="MeshInstance" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.00556064, 0.00547934, -0.00166273 )
+visible = false
+material/0 = SubResource( 1 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477854, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 1 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="." index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.685172, 0 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 1 )
