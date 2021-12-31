@@ -22,12 +22,12 @@ func _ready() -> void:
 
 
 func load_from_settings() -> void:
-	is_y_inverted = ConfigManager.get_setting("controls", "inverted")
-	is_x_inverted = ConfigManager.get_setting("controls", "inverted")
+	is_y_inverted = ConfigManager.get_setting("controls", "invert_camera_y")
+	is_x_inverted = ConfigManager.get_setting("controls", "invert_camera_x")
 
 	var float_controller_sens = ConfigManager.get_setting("controls", "controller_sensitivity")
 	var float_mouse_sens = ConfigManager.get_setting("controls", "mouse_sensitivity")
-	
+
 	default_sensitivity_gamepad = Vector2(float_controller_sens, float_controller_sens)
 	default_sensitivity_mouse = Vector2(float_mouse_sens, float_mouse_sens)
 
@@ -38,9 +38,10 @@ func load_from_settings() -> void:
 func _on_changed_setting(category: String, key: String, new_val) -> void:
 	if category == "controls":
 		match key:
-			"inverted":
-				is_y_inverted = new_val
+			"invert_camera_x":
 				is_x_inverted = new_val
+			"invert_camera_y":
+				is_y_inverted = new_val
 			"hold_for_aim":
 				pass
 			"mouse_sensitivity":
@@ -101,7 +102,6 @@ func auto_rotate(_move_direction: Vector3, delta: float) -> void:
 
 
 func update_rotation(offset: Vector2) -> void:
-	camera_rig.rotation.y -= offset.x
 	camera_rig.rotation.x += offset.y * -1.0 if not is_y_inverted else offset.y
 	camera_rig.rotation.y += offset.x * -1.0 if not is_x_inverted else offset.x
 	camera_rig.rotation.x = clamp(camera_rig.rotation.x, -0.75, 1.25)

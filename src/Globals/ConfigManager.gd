@@ -9,10 +9,10 @@ const SAVE_PATH_DEBUG = "res://config.cfg"
 const SAVE_PATH = "user://config.cfg"
 const ConfigConsoleColor = Color.teal
 
+onready var save_path_file = SAVE_PATH_DEBUG if OS.is_debug_build() else SAVE_PATH
 var _config_file: ConfigFile = ConfigFile.new()
 
 # This are the default settings
-# TODO: check game version when loading config file
 var _settings: Dictionary = {
 	"version":
 	{
@@ -25,7 +25,8 @@ var _settings: Dictionary = {
 	},
 	"controls":
 	{
-		"inverted": false,
+		"invert_camera_x": false,
+		"invert_camera_y": false,
 		"hold_for_aim": true,
 		"mouse_sensitivity": 1.8,
 		"controller_sensitivity": 2.0,
@@ -48,6 +49,8 @@ func _ready() -> void:
 
 
 func save_settings_file() -> void:
+	_settings["version"]["game_version"] = ProjectSettings.get_setting("application/config/version")
+
 	for section in _settings.keys():
 		for key in _settings[section]:
 			_config_file.set_value(section, key, _settings[section][key])

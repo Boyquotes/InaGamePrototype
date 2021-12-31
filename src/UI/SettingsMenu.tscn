@@ -31,89 +31,97 @@ __meta__ = {
 [node name="Settings" type="VBoxContainer" parent="Panel"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 237.0
-margin_bottom = 309.0
+margin_right = 244.0
+margin_bottom = 353.0
 
 [node name="Controls" type="Label" parent="Panel/Settings"]
-margin_right = 230.0
+margin_right = 237.0
 margin_bottom = 31.0
 text = "Controls:
 "
 
 [node name="Mouse" type="Label" parent="Panel/Settings"]
 margin_top = 35.0
-margin_right = 230.0
+margin_right = 237.0
 margin_bottom = 49.0
 text = "Sensitivity mouse"
 
 [node name="SensitivityMouse" parent="Panel/Settings" instance=ExtResource( 2 )]
 margin_top = 53.0
-margin_right = 230.0
+margin_right = 237.0
 margin_bottom = 69.0
 
 [node name="Mouse2" type="Label" parent="Panel/Settings"]
 margin_top = 73.0
-margin_right = 230.0
+margin_right = 237.0
 margin_bottom = 87.0
 text = "Sensitivity controller"
 
 [node name="SensitivityController" parent="Panel/Settings" instance=ExtResource( 2 )]
 margin_top = 91.0
-margin_right = 230.0
+margin_right = 237.0
 margin_bottom = 107.0
 setting_name = "controller_sensitivity"
 
 [node name="InvertedControls" parent="Panel/Settings" instance=ExtResource( 4 )]
 margin_top = 111.0
-margin_right = 230.0
+margin_right = 237.0
 margin_bottom = 151.0
-text = "Invert camera"
+text = "Invert camera horizontal"
+setting_name = "invert_camera_x"
+
+[node name="InvertedControls2" parent="Panel/Settings" instance=ExtResource( 4 )]
+margin_top = 155.0
+margin_right = 237.0
+margin_bottom = 195.0
+text = "Invert camera vertical"
+setting_name = "invert_camera_y"
 
 [node name="HSeparator" type="HSeparator" parent="Panel/Settings"]
-margin_top = 155.0
-margin_right = 230.0
-margin_bottom = 159.0
+margin_top = 199.0
+margin_right = 237.0
+margin_bottom = 203.0
 
 [node name="Audio" type="Label" parent="Panel/Settings"]
-margin_top = 163.0
-margin_right = 230.0
-margin_bottom = 194.0
+margin_top = 207.0
+margin_right = 237.0
+margin_bottom = 238.0
 text = "Audio:
 "
 
 [node name="Master" type="Label" parent="Panel/Settings"]
-margin_top = 198.0
-margin_right = 230.0
-margin_bottom = 212.0
+margin_top = 242.0
+margin_right = 237.0
+margin_bottom = 256.0
 text = "Master"
 
 [node name="MasterSlider" parent="Panel/Settings" instance=ExtResource( 1 )]
-margin_top = 216.0
-margin_right = 230.0
-margin_bottom = 232.0
+margin_top = 260.0
+margin_right = 237.0
+margin_bottom = 276.0
 
 [node name="SFX" type="Label" parent="Panel/Settings"]
-margin_top = 236.0
-margin_right = 230.0
-margin_bottom = 250.0
+margin_top = 280.0
+margin_right = 237.0
+margin_bottom = 294.0
 text = "SFX"
 
 [node name="SFXSlider" parent="Panel/Settings" instance=ExtResource( 1 )]
-margin_top = 254.0
-margin_right = 230.0
-margin_bottom = 270.0
+margin_top = 298.0
+margin_right = 237.0
+margin_bottom = 314.0
 audio_bus_name = "SFX"
 
 [node name="HSeparator2" type="HSeparator" parent="Panel/Settings"]
-margin_top = 274.0
-margin_right = 230.0
-margin_bottom = 278.0
+margin_top = 318.0
+margin_right = 237.0
+margin_bottom = 322.0
 
 [node name="BottomButtons" type="HBoxContainer" parent="Panel/Settings"]
-margin_left = 32.0
-margin_top = 282.0
-margin_right = 198.0
-margin_bottom = 302.0
+margin_left = 35.0
+margin_top = 326.0
+margin_right = 201.0
+margin_bottom = 346.0
 size_flags_horizontal = 4
 
 [node name="AcceptBtn" type="Button" parent="Panel/Settings/BottomButtons"]

@@ -20,7 +20,7 @@ func load_value() -> void:
 
 func save_setting() -> void:
 	ConfigManager.set_setting("sound", audio_bus_name, value)
-	AudioServer.set_bus_volume_db(_bus, value)
+	AudioServer.set_bus_volume_db(_bus, linear2db(value))
 
 
 func _on_VolumeSlider_value_changed(value: float) -> void:
