@@ -291,9 +291,9 @@ config/version="0.0.sordbrokethegameagaindamnit3"
 
 [autoload]
 
-ConfigManager="*res://src/Globals/ConfigManager.gd"
 FpsLabel="*res://src/Debug/FPSLabel.gd"
 VersionLabel="*res://src/Debug/VersionLabel.tscn"
+ConfigManager="*res://src/Globals/ConfigManager.gd"
 SettingsMenu="*res://src/UI/SettingsMenu.tscn"
 
 [debug]

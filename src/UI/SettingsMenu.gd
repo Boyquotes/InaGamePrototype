@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.get_action_strength("pause"):
+	if event.get_action_strength("pause") and not get_tree().paused:
 		get_tree().paused = true
 		visible = true
 		focus_first.grab_focus()

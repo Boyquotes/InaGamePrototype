@@ -12,6 +12,8 @@ func _get_configuration_warning() -> String:
 
 
 func show_dialog() -> void:
+	if not get_tree().paused:
+		return
 	var gdscript_dialog = Dialogic.start(timeline)
 	
 	gdscript_dialog.pause_mode = Node.PAUSE_MODE_PROCESS

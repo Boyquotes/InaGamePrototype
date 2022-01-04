@@ -6,7 +6,7 @@ onready var accept_dialog = $AcceptDialog
 onready var sfx = $SFX
 
 func _on_PopupTrigger_body_entered(_body: Node) -> void:
-	if not activated:
+	if not activated and not get_tree().paused:
 		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		sfx.play()
