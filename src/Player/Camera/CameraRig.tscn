@@ -10,6 +10,8 @@
 [ext_resource path="res://src/Player/Camera/States/Default.gd" type="Script" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
+radius = 0.5
+height = 0.5
 
 [sub_resource type="SpatialMaterial" id=2]
 flags_transparent = true
@@ -25,6 +27,7 @@ script = ExtResource( 4 )
 transform = Transform( 1, 0, 0, 0, 0.87462, 0.48481, 0, -0.48481, 0.87462, 0, 0.5, 0.5 )
 current = true
 target = NodePath("../SpringArm/CameraTarget")
+speed = 3.0
 enabled = true
 
 [node name="AimRay" type="RayCast" parent="Camera"]
