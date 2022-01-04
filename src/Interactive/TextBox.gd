@@ -6,6 +6,9 @@ func _ready() -> void:
 	connect("player_interacted", self, "show_dialog")
 
 func show_dialog() -> void:
+	if get_tree().paused:
+		return
+	
 	var gdscript_dialog = Dialogic.start('')
 	
 	gdscript_dialog.pause_mode = Node.PAUSE_MODE_PROCESS

@@ -8,7 +8,7 @@ onready var icon: Sprite3D = $Icon
 var _active := false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if _active and event.get_action_strength("interact"):
+	if _active and event.is_action_pressed("interact"):
 		emit_signal("player_interacted")
 
 

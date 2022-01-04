@@ -287,7 +287,7 @@ _global_script_class_icons={
 config/name="InaGamePrototype"
 run/main_scene="res://src/Levels/SwitchLevels/Level1/Level1.tscn"
 config/icon="res://icon.png"
-config/version="0.0.sordbrokethegameagaindamnit3"
+config/version="0.0.sordbrokethegameagaindamnit4"
 
 [autoload]
 
