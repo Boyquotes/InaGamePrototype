@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/Levels/TestLevel.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://src/Levels/SwitchLevels/Level1/Rooms/Room5.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Levels/SwitchLevels/Level1/Rooms/Room6.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Interactive/TextBox.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Interactive/Checkpoint/CheckPointSystem.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Interactive/Checkpoint/CheckPointArea.tscn" type="PackedScene" id=13]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -31,6 +33,9 @@ dof_blur_near_quality = 2
 glow_enabled = true
 glow_bicubic_upscale = true
 glow_high_quality = true
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1.98062, 2, 0.3 )
 
 [node name="Level1" type="Spatial"]
 script = ExtResource( 1 )
@@ -93,4 +98,26 @@ shape = SubResource( 4 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 8 )
 
-[connection signal="body_entered" from="FallZone" to="." method="_on_FallZone_body_entered"]
+[node name="CheckPointSystem" parent="." instance=ExtResource( 12 )]
+death_area = NodePath("../FallZone")
+player = NodePath("../Player")
+
+[node name="CheckPoint" parent="CheckPointSystem" instance=ExtResource( 13 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -13.9078 )
+
+[node name="CheckPoint2" parent="CheckPointSystem" instance=ExtResource( 13 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.6044, 0, -42.2097 )
+
+[node name="CollisionShape" parent="CheckPointSystem/CheckPoint2" index="0"]
+shape = SubResource( 9 )
+
+[node name="CheckPoint3" parent="CheckPointSystem" instance=ExtResource( 13 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -6.32483, 0, -61.7437 )
+
+[node name="CheckPoint4" parent="CheckPointSystem" instance=ExtResource( 13 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -57.7373, 0, -61.7437 )
+
+[node name="CheckPoint5" parent="CheckPointSystem" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80.9262, 0, -33.8796 )
+
+[editable path="CheckPointSystem/CheckPoint2"]
