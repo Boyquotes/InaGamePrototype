@@ -82,10 +82,10 @@ target_path = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.476384, 0.71604, -0.51024, -0.146507, 0.636854, 0.756937, 0.866945, -0.285839, 0.408292, 0, 10.0731, -43.0375 )
+transform = Transform( 0.476384, 0.71604, -0.51024, -0.146507, 0.636854, 0.756936, 0.866945, -0.285839, 0.408292, 0, 10.0731, -43.0375 )
 shadow_enabled = true
 shadow_bias = 0.02
-directional_shadow_normal_bias = 0.5
+directional_shadow_normal_bias = 0.2
 
 [node name="FallZone" type="Area" parent="."]
 collision_layer = 0
