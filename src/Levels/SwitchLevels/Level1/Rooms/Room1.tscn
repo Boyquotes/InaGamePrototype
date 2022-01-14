@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Obstacles/OpenCloseDoor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/kenney_prototypes/assets/colors/orange/scenes/prototype_orange_01.tscn" type="PackedScene" id=5]
@@ -9,6 +9,9 @@
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 11.709, 3.69591, 1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 6.16238, 1, 0.28239 )
 
 [node name="Room1" type="Spatial"]
 __meta__ = {
@@ -94,11 +97,18 @@ transform = Transform( 1, 0, -4.44089e-16, 0, 1, 0, -5.68434e-14, 0, 1, -1, -1, 
 
 [node name="PopupTrigger" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.1135 )
-text = "Press E to interact with objects when they have an icon above them.
-
-(You can also close this dialog with E)"
+text = "Use [interact_btn] to interact with objects when they have an icon above them.
+(You can also close this dialog with [interact_btn])"
 
 [node name="CollisionShape" parent="PopupTrigger" index="0"]
 shape = SubResource( 3 )
 
+[node name="PopupTrigger2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.0284 )
+text = "When you hear that sound, it means you reached a checkpoint."
+
+[node name="CollisionShape" parent="PopupTrigger2" index="0"]
+shape = SubResource( 4 )
+
 [editable path="PopupTrigger"]
+[editable path="PopupTrigger2"]

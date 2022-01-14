@@ -80,6 +80,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
 
 [node name="TextBox" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70675, 0, -26.4635 )
-text = "Press [b]right click[/b] to [i]aim[/i], and [b]left click[/b] to [i]summon[/i] a tentacle.
-Tentacles can interact with [i]switches[/i].
-(You can close this dialog with E)"
+text = "Press [b][aim_btn][/b] to [i]aim[/i], and [b][fire_btn][/b] to [i]summon[/i] a tentacle.
+Tentacles can interact with [i]switches[/i]."

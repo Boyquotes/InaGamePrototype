@@ -301,6 +301,8 @@ FpsLabel="*res://src/Debug/FPSLabel.gd"
 VersionLabel="*res://src/Debug/VersionLabel.tscn"
 ConfigManager="*res://src/Globals/ConfigManager.gd"
 SettingsMenu="*res://src/UI/SettingsMenu.tscn"
+InputHelper="*res://addons/input_helper/input_helper.gd"
+DialogicInputHelper="*res://src/Globals/DialogicInputHelper.gd"
 
 [debug]
 
@@ -308,7 +310,7 @@ gdscript/warnings/return_value_discarded=false
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg", "res://addons/open-external-editor/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg", "res://addons/input_helper/plugin.cfg", "res://addons/open-external-editor/plugin.cfg" )
 
 [input]
 

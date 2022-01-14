@@ -61,7 +61,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
 [node name="TextBox2" parent="Room2" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.88013, -0.150942, -35.8664 )
 text = "Extra controls:
-- [b] Middle mouse button [/b] to reset the camera"
+- [b] [reset_camera_btn] [/b] to reset the camera"
 
 [node name="Room3" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -42.0313 )

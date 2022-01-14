@@ -19,6 +19,7 @@ shape = SubResource( 1 )
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.111795, 0.705973 )
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 2 )
 volume_db = -11.48
 bus = "SFX"

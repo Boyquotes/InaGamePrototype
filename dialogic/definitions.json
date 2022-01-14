@@ -10,6 +10,29 @@
 		}
 	],
 	"variables": [
-
+		{
+			"id": "1642138704-787",
+			"name": "fire_btn",
+			"type": 0,
+			"value": "left click"
+		},
+		{
+			"id": "1642138627-648",
+			"name": "aim_btn",
+			"type": 0,
+			"value": "right click"
+		},
+		{
+			"id": "1642138750-366",
+			"name": "interact_btn",
+			"type": 0,
+			"value": "E"
+		},
+		{
+			"id": "1642139361-146",
+			"name": "reset_camera_btn",
+			"type": 0,
+			"value": "Middle mouse button"
+		}
 	]
 }
