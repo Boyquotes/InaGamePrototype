@@ -8,7 +8,7 @@
 [sub_resource type="BoxShape" id=2]
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 11.9923, 2.91941, 1.41563 )
+extents = Vector3( 11.709, 3.69591, 1 )
 
 [node name="Room1" type="Spatial"]
 __meta__ = {
@@ -64,21 +64,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0249073, -7.39298 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.4834 )
 activator_path = NodePath("../Switch")
 
-[node name="PopupTrigger" parent="." instance=ExtResource( 6 )]
-
-[node name="AcceptDialog" parent="PopupTrigger" index="0"]
-margin_left = -128.0
-margin_top = -42.0
-margin_right = 128.0
-margin_bottom = 42.0
-window_title = "Info"
-dialog_text = "Press E to interact with objects when they have an icon above them"
-dialog_autowrap = true
-
-[node name="CollisionShape" parent="PopupTrigger" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00934, -5.14964 )
-shape = SubResource( 3 )
-
 [node name="SideWallR" type="StaticBody" parent="."]
 transform = Transform( -2.31647e-07, 0, -0.430028, 0, 3.04052, 0, 14.0516, 0, -4.98405e-08, 12.01, 2.35888, -3.12553 )
 collision_layer = 2
@@ -106,5 +91,14 @@ __meta__ = {
 
 [node name="PrototypeCube" parent="SideWallL" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, -4.44089e-16, 0, 1, 0, -5.68434e-14, 0, 1, -1, -1, -1 )
+
+[node name="PopupTrigger" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.1135 )
+text = "Press E to interact with objects when they have an icon above them.
+
+(You can also close this dialog with E)"
+
+[node name="CollisionShape" parent="PopupTrigger" index="0"]
+shape = SubResource( 3 )
 
 [editable path="PopupTrigger"]

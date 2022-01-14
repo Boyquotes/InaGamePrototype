@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Interactive/PopupTrigger.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx/Menu Open.wav" type="AudioStream" id=2]
+
+[sub_resource type="BoxShape" id=1]
 
 [node name="PopupTrigger" type="Area"]
 pause_mode = 2
@@ -9,22 +11,9 @@ collision_layer = 0
 monitorable = false
 script = ExtResource( 1 )
 
-[node name="AcceptDialog" type="AcceptDialog" parent="."]
-visible = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -41.5
-margin_top = -29.0
-margin_right = 41.5
-margin_bottom = 29.0
-resizable = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 1 )
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -32,5 +21,3 @@ volume_db = -21.546
 bus = "SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_PopupTrigger_body_entered"]
-[connection signal="confirmed" from="AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]
-[connection signal="popup_hide" from="AcceptDialog" to="." method="_on_AcceptDialog_popup_hide"]
