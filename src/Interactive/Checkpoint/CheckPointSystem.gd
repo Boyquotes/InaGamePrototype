@@ -21,6 +21,7 @@ func respawn_player(body: Node) -> void:
 	if body is Player:
 		if _active_checkpoint != null:
 			_player_node.global_transform.origin = _active_checkpoint.global_respawn_coord
+			_player_node.global_transform.basis = _active_checkpoint.respawn_point.global_transform.basis
 		else:
 			_player_node.global_transform.origin = Vector3.ZERO
 

@@ -16,11 +16,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 shape = SubResource( 1 )
 
 [node name="RespawnPoint" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.111795, 0.705973 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.111795, 0.705973 )
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = -11.48
 bus = "SFX"
 
-[connection signal="body_entered" from="." to="." method="_on_CheckPoint_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_CheckPoint_body_entered" flags=6]
