@@ -126,7 +126,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70346, 0, 3.65101 )
 
 [node name="TextBox" parent="." instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.325219, 0, 3.73939 )
-text = "Tentacles can't activate pressure plates, they also don't need to be static."
+text = "Tentacles can't activate pressure plates, but they like going on rides!"
 
 [node name="CollisionShape" parent="TextBox" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0887568, 0 )

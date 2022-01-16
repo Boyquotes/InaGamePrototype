@@ -291,12 +291,13 @@ _global_script_class_icons={
 [application]
 
 config/name="InaGamePrototype"
-run/main_scene="res://src/Levels/SwitchLevels/Level1/Level1.tscn"
+run/main_scene="res://src/Levels/Hub/WorldHub.tscn"
 config/icon="res://icon.png"
 config/version="0.0.sordbrokethegameagaindamnit6"
 
 [autoload]
 
+CaptureMouseGlobal="*res://src/Globals/CaptureMouseGlobal.gd"
 FpsLabel="*res://src/Debug/FPSLabel.gd"
 VersionLabel="*res://src/Debug/VersionLabel.tscn"
 ConfigManager="*res://src/Globals/ConfigManager.gd"

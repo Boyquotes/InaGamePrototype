@@ -24,7 +24,7 @@ albedo_texture = ExtResource( 6 )
 script = ExtResource( 4 )
 
 [node name="Camera" type="InterpolatedCamera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.87462, 0.48481, 0, -0.48481, 0.87462, 0, 0.5, 0.5 )
+transform = Transform( 1, 0, 0, 0, 0.87462, 0.48481, 0, -0.48481, 0.87462, 0, 2.69203, 4.44002 )
 current = true
 target = NodePath("../SpringArm/CameraTarget")
 speed = 3.0
@@ -44,6 +44,7 @@ spring_length = 4.5
 script = ExtResource( 2 )
 
 [node name="CameraTarget" type="Position3D" parent="SpringArm"]
+transform = Transform( 1, 0, 0, 0, 1, 1.49012e-07, 0, -1.49012e-07, 1, 0, 6.85453e-07, 4.2799 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 5 )

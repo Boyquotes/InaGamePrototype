@@ -26,7 +26,7 @@
 			"character": "character-1640291220.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "You finished all the [wave amp=50 freq=10]rooms[/wave]!"
+			"text": "You finished the  [wave amp=50 freq=10]level[/wave]!"
 		},
 		{
 			"event_id": "dialogic_022",

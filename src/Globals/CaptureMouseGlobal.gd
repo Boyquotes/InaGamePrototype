@@ -1,6 +1,6 @@
-extends Spatial
+extends Node
 
-onready var player = $Player
+#onready var player = $Player
 
 
 func _ready() -> void:
@@ -24,5 +24,6 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_FallZone_body_entered(_body: Node) -> void:
-	player.transform.origin = Vector3.ZERO
-	player.rotation = Vector3.ZERO
+	return
+	#player.transform.origin = Vector3.ZERO
+	#player.rotation = Vector3.ZERO
