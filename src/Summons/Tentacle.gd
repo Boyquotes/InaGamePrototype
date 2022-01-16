@@ -16,6 +16,7 @@ func _ready() -> void:
 	animation.queue("Summon")
 
 func delete() -> void:
+	remove_from_group("Tentacle")
 	animation.play("die")
 
 
