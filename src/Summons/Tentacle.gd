@@ -44,7 +44,6 @@ func _on_Scanner_area_entered(area: Area) -> void:
 		var colliding = raycast.is_colliding()
 		var in_area = scanner.get_overlapping_areas().has(area)
 		
-		print(colliding, in_area)
 		
 		if (in_area and not colliding):
 			area.press_switch()

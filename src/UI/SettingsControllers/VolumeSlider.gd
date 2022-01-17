@@ -8,7 +8,6 @@ var _ready_volume = false
 
 
 func _ready() -> void:
-	print(db2linear(-5.3))
 	ConfigManager.connect("restored_settings", self, "load_value")
 	load_value()
 

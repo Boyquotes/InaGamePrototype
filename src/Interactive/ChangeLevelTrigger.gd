@@ -6,7 +6,6 @@ onready var sfx_player = $SFX
 func _ready() -> void:
 	var sfx_length = sfx_player.stream.get_length()
 	var rand_sec = rand_range(0.0, sfx_length)
-	print(rand_sec)
 	sfx_player.seek(rand_sec)
 	
 
