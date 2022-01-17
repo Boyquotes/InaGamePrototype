@@ -16,6 +16,7 @@ func _ready() -> void:
 	model.material_override = model.material_override.duplicate(true)
 	self.switched = initial_state
 	_switch_ready = true
+	emit_signal("state_changed", switched)
 
 
 func press_switch() -> void:

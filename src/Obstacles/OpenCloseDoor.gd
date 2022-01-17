@@ -39,6 +39,8 @@ func set_opened_position(new_pos: Vector3) -> void:
 
 func _on_activator_state_changed(new_state: bool) -> void:
 	var goal_position = opened_position if new_state else closed_position
+	if goal_position == door.translation:
+		return
 	
 	var time_aux = time
 	if tween.is_active():
