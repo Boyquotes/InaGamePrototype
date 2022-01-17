@@ -1,6 +1,11 @@
 tool
 extends StaticBody
 
+enum GOING_TO {
+	START_POS = 0,
+	END_POS = 1,
+}
+
 export var activator_path: NodePath
 export var start_position:= Vector3.ZERO setget set_start_position
 export var end_position:= Vector3.ZERO setget set_end_position
@@ -16,6 +21,10 @@ onready var past_coord = global_transform.origin
 onready var total_distance = start_position.distance_to(end_position)
 
 var _activator_node
+# If the moving platform is currently activated by a switch
+var _activated = false
+var _going_to = GOING_TO.END_POS
+
 var global_start_position: Vector3
 var global_end_position:Vector3
 
@@ -61,7 +70,10 @@ func set_end_position(new_val: Vector3) -> void:
 
 
 func _on_activator_state_changed(new_state: bool) -> void:
+	_activated = new_state
 	var goal_position = global_end_position if new_state else global_start_position
+	if goal_position == self.global_transform.origin:
+		return
 	
 	var time_aux = time
 	if tween.is_active():
@@ -80,6 +92,17 @@ func _on_activator_state_changed(new_state: bool) -> void:
 
 
 func _on_Tween_tween_all_completed() -> void:
-	constant_linear_velocity = Vector3.ZERO
-	sfx.stop()
-	set_physics_process(false)
+	if _activated and continuous:
+		_going_to = GOING_TO.END_POS if _going_to == GOING_TO.START_POS else GOING_TO.START_POS
+		var goal_position = global_end_position if _going_to == GOING_TO.END_POS else global_start_position
+		
+		tween.interpolate_property(
+			self, "global_transform:origin",
+			self.global_transform.origin,
+			goal_position,
+			time)
+		tween.start()
+	else:
+		sfx.stop()
+		constant_linear_velocity = Vector3.ZERO
+		set_physics_process(false)
